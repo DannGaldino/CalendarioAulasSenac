@@ -1,6 +1,5 @@
 import calendar
+import calendario
 
-ano = 2021
-mes = 4
-
-print(calendar.month(ano, mes))
+if __name__== "__main__":
+    calendario.coletar()
