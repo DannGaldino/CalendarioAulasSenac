@@ -2,4 +2,4 @@ import calendar
 import calendario
 
 if __name__== "__main__":
-    calendario.consultar()
+    calendario.menu()
