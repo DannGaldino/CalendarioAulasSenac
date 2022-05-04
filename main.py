@@ -1,5 +1,4 @@
-import calendar
-import calendario
+import menu
 
-if __name__== "__main__":
-    calendario.menu()
+if __name__ == "__main__":
+    menu.operacoes()
