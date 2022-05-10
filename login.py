@@ -1,21 +1,32 @@
 import this
 import calendario
 import cadastrarProfessor
+import conexao
+
+db_connection = conexao.conectar() #Abrindo a conexão com o banco de dados
+con = db_connection.cursor()
 
 this.email = ""
-this.senha = 0
-this.opcao = 0
-def loginFuncionario():
-    print('Informe o email: ')
-    this.email = (input())
+this.senha = ""
 
-    print('Informe a senha: ')
+
+def loginProfessor():
+    print("Informe o seu email: ")
+    this.email = input()
+    print("Informe a sua senha: ")
     this.senha = input()
 
+    try:
+        sql = "select senha from Professor where = '{}';".format(this.email)
+        con.execute(sql)#Prepara o comando para ser executado
 
-def mostrar():
-    cadastrarProfessor
-    loginFuncionario()
-    print("Conectado com sucesso")
+        for (senha) in con:
+            print(senha)
 
-    calendario.coletar()
+        #if this.senha == sql:
+            #calendario.inserir()
+        #else:
+            #print("acesso negado!")
+
+    except Exception as erro:
+      print(erro)

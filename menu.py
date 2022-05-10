@@ -1,5 +1,5 @@
-import coletarProfessores
-import loginProfessor
+import cadastrarProfessor
+import login
 import this
 import calendario
 
@@ -8,7 +8,7 @@ this.opcao = -2
 
 def mostrarMenu():
     print('Escolha uma das opçôes abaixo: ' +
-          '\n\n\n1. Coletar Dados do(a) professor(a)' +
+          '\n\n\n1. Cadastrar Professor' +
           '\n2. Calendário' +
           '\n3. Login' +
           '\n4. Sair')
@@ -19,10 +19,10 @@ def operacoes():
     while this.opcao != 4:
         mostrarMenu()
         if this.opcao == 1:
-            print(coletarProfessores.mostrarDados())
+            cadastrarProfessor.coletarDados()
         elif this.opcao == 2:
-            print(calendario.consultar())
+            calendario.consultar()
         elif this.opcao == 3:
-            print(loginProfessor.mostrar())
+            login.loginProfessor()
         else:
             print('Opção inválida! Tente novamente')

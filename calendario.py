@@ -1,8 +1,9 @@
 import this
 
-this.mes = 0
-this.dia = 0
-this.professor = 0
+this.data = 0
+this.turno = ""
+this.materia = ""
+this.professor = ""
 
 def meses():
     this.janeiro = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
@@ -20,68 +21,22 @@ def meses():
 
 
 def coletar():
-    print("Informe o mês")
-    this.mes = int(input())
+    print("Agendar Aula")
+    print("Informe a data da aula: (dia/mês/ano)")
+    this.data = int(input())
+
+    print("Informe o turno: (Manhã, tarde ou noite)")
+    this.turno = int(input())
     print("Informe o dia")
-    this.dia = int(input())
-    print("Informe o nome do professor")
-    this.professor = str(input())
-    inserir(this.mes, this.dia, this.professor)
+
+    print("Informe a matéria: ")
+    this.materia = int(input())
+
+    inserir(this.data, this.turno, this.materia)
 
 
-def inserir(mes, dia, professor):
-    meses()
-    if mes == 1:
-        this.janeiro.pop((dia - 1))
-        this.janeiro.insert((dia - 1), str(professor))
-        print(this.janeiro)
-    elif mes == 2:
-        this.fevereiro.pop((dia - 1))
-        this.fevereiro.insert((dia - 1), str(professor))
-        print(this.fevereiro)
-    elif mes == 3:
-        this.marco.pop((dia - 1))
-        this.marco.insert((dia - 1), str(professor))
-        print(this.marco)
-    elif mes == 4:
-        this.abril.pop((dia - 1))
-        this.abril.insert((dia - 1), str(professor))
-        print(this.abril)
-    elif mes == 5:
-        this.maio.pop((dia - 1))
-        this.maio.insert((dia - 1), str(professor))
-        print(this.maio)
-    elif mes == 6:
-        this.junho.pop((dia - 1))
-        this.junho.insert((dia - 1), str(professor))
-        print(this.junho)
-    elif mes == 7:
-        this.julho.pop((dia - 1))
-        this.julho.insert((dia - 1), str(professor))
-        print(this.julho)
-    elif mes == 8:
-        this.agosto.pop((dia - 1))
-        this.agosto.insert((dia - 1), str(professor))
-        print(this.agosto)
-    elif mes == 9:
-        this.setembro.pop((dia - 1))
-        this.setembro.insert((dia - 1), str(professor))
-        print(this.setembro)
-    elif mes == 10:
-        this.outubro.pop((dia - 1))
-        this.outubro.insert((dia - 1), str(professor))
-        print(this.outubro)
-    elif mes == 11:
-        this.novembro.pop((dia - 1))
-        this.novembro.insert((dia - 1), str(professor))
-        print(this.novembro)
-    elif mes == 12:
-        this.dezembro.pop((dia - 1))
-        this.dezembro.insert((dia - 1), str(professor))
-        print(this.dezembro)
-    else:
-        print("Opção inválida")
-    print(str(dia) + " de " + str(mes) + ": " + str(professor))
+def inserir():
+    print("bem vindo!")
 
 
 def consultar():
