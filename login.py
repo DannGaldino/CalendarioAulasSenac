@@ -17,16 +17,16 @@ def loginProfessor():
     this.senha = input()
 
     try:
-        sql = "select senha from Professor where = '{}';".format(this.email)
+        sql = "select senha from Professor where email = '{}';".format(this.email)
         con.execute(sql)#Prepara o comando para ser executado
 
         for (senha) in con:
-            print(senha)
-
-        #if this.senha == sql:
-            #calendario.inserir()
-        #else:
-            #print("acesso negado!")
+            print(senha[0])
+            if this.senha == senha[0]:
+                print("Acesso Liberado")
+                calendario.coletar()
+            else:
+                print("acesso negado!")
 
     except Exception as erro:
       print(erro)
