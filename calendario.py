@@ -8,6 +8,7 @@ this.data = ""
 this.turno = ""
 this.materia = ""
 this.professor = ""
+this.horario = ""
 
 def meses():
     this.janeiro = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
@@ -36,7 +37,10 @@ def coletar():
     print("Informe a data da aula: (dia/mês/ano)")
     this.data = input()
 
-    print("Informe o turno: (Manhã, tarde ou noite)")
+    print("Informe o turno: ")
+    print("1. Manhã")
+    print("2. Tarde")
+    print("3. Noite")
     this.turno = input()
 
     print("Informe a matéria: ")
@@ -45,7 +49,7 @@ def coletar():
     print("Informe o nome do professor: ")
     this.professor = input()
 
-    codigo = (convertDate(this.data) + this.turno)
+    codigo = (convertDate(this.data) + "(" + this.turno + ")")
 
     separado = this.data.split('/')
     dia = separado[0]
@@ -68,35 +72,41 @@ def inserir(codigo, dia, mes, ano, turno, materia, professor):
 
 
 def consultar():
-    print("Consultar professor por data")
-    print("Informe o mês:")
-    mes = int(input())
-    print("Informe o dia:")
-    dia = int(input())
-    if mes == 1:
-        print("entrei")
-        print(this.janeiro[(dia - 1)])
-    elif mes == 2:
-        print(this.fevereiro[(dia - 1)])
-    elif mes == 3:
-        print(this.marco[(dia - 1)])
-    elif mes == 4:
-        print(this.abril[(dia - 1)])
-    elif mes == 5:
-        print(this.maio[(dia - 1)])
-    elif mes == 6:
-        print(this.junho[(dia - 1)])
-    elif mes == 7:
-        print(this.julho[(dia - 1)])
-    elif mes == 8:
-        print(this.agosto[(dia - 1)])
-    elif mes == 9:
-        print(this.setembro[(dia - 1)])
-    elif mes == 10:
-        print(this.outubro[(dia - 1)])
-    elif mes == 11:
-        print(this.novembro[(dia - 1)])
-    elif mes == 12:
-        print(this.dezembro[(dia - 1)])
-    else:
-        print("Opção inválida")
+    print("Consultar aulas agendadas")
+
+    print("Informe a data da aula: (dia/mês/ano)")
+    this.data = input()
+
+    print("Informe o turno: ")
+    print("1. Manhã")
+    print("2. Tarde")
+    print("3. Noite")
+    this.turno = int(input())
+
+    codigo = (convertDate(this.data) + "(" + str(this.turno) + ")")
+
+    sql = "select * from calendario where codigo = '{}'".format(codigo)
+    con.execute(sql)  # Prepara o comando para ser executado
+
+
+    for (codigo, dia, mes, ano , turno, materia, professor) in con:
+        print(dia, mes, ano, turno, materia)
+
+
+        if this.turno == 1:
+            this.horario = "Manhã"
+        elif this.turno == 2:
+            this.horario = "Tarde"
+        elif this.turno == 3:
+            this.horario = "Noite"
+        else:
+            print("Insira uma opção válida!")
+
+        print("Data: " + str(dia) + "/" + str(mes) + "/" + str(ano))
+        print("Turno: " + str(this.horario))
+        print("Matéria: " + materia)
+        print("Professor: " + professor)
+
+
+
+
