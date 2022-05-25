@@ -16,6 +16,8 @@ def loginProfessor():
     print("Informe a sua senha: ")
     this.senha = input()
 
+    msg = "Acesso negado! Preencha os campos corretamente."
+
     try:
         sql = "select senha from Professor where email = '{}';".format(this.email)
         con.execute(sql)#Prepara o comando para ser executado
@@ -25,8 +27,8 @@ def loginProfessor():
             if this.senha == senha[0]:
                 print("Acesso Liberado")
                 calendario.coletar()
-            else:
-                print("acesso negado!")
 
     except Exception as erro:
       print(erro)
+
+    print(msg)
