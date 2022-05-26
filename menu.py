@@ -25,7 +25,7 @@ def mostrarMenu():
     this.opcao = int(input())
 
 def operacoes():
-    while this.opcao != 6:
+    while this.opcao != 8:
         mostrarMenu()
         if this.opcao == 1:
             cadastrarProfessor.coletarDados()
@@ -41,5 +41,7 @@ def operacoes():
             print(atualizarSenha.atualizarSenha(this.email, this.senha))
         elif this.opcao == 7:
             print(excluirData.excluir(this.codigo))
+        elif this.opcao == 8:
+            print("Obrigado!")
         else:
             print('Opção inválida! Tente novamente')
