@@ -28,7 +28,7 @@ def coletarDados():
     this.nome = []
 
 
-
+    print("Cadastrar Professor")
     print('Informe o e-mail do professor: ')
     this.email = input()
 

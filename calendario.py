@@ -1,5 +1,6 @@
 import this
 import conexao
+import excluirData
 
 db_connection = conexao.conectar() #Abrindo a conexão com o banco de dados
 con = db_connection.cursor()
@@ -31,6 +32,9 @@ def convertDate(texto):
     year = separate[2]
     return '{}-{}-{}'.format(year, month, day)
 
+def coletarExcluir():
+    codigo = (convertDate(this.data) + "(" + this.turno + ")")
+    excluirData.excluir()
 
 def coletar():
     print("Agendar Aula")
