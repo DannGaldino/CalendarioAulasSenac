@@ -33,8 +33,15 @@ def convertDate(texto):
     return '{}-{}-{}'.format(year, month, day)
 
 def coletarExcluir():
+    print("Informe a data da aula que você deseja desmarcar: (xx/xx/xxxx)")
+    this.data = input()
+    print("Informe oturno da aula que você deseja desmarcar: ")
+    print("1. Manhã")
+    print("2. Tarde")
+    print("3. Noite")
+    this.turno = input()
     codigo = (convertDate(this.data) + "(" + this.turno + ")")
-    excluirData.excluir()
+    excluirData.excluir(codigo)
 
 def coletar():
     print("Agendar Aula")
