@@ -25,7 +25,7 @@ def loginProfessor():
         con.execute(sql)#Prepara o comando para ser executado
 
         for (senha) in con:
-            print(senha[0])
+
             if this.senha == senha[0]:
                 print("Acesso Liberado")
                 menu.menu2()
