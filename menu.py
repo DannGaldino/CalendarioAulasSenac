@@ -60,3 +60,28 @@ def menu2():
             print("Obrigado")
         else:
             print('Opção inválida! Tente novamente')
+
+def mostrarMenu3():
+    print('Escolha uma das opçôes abaixo: ' +
+          '\n\n\n1. Cadastrar Professor' +
+          '\n2. Atualizar Nome(Professor)' +
+          '\n3. Atualizar Senha(Professor)' +
+          '\n4. Sair')
+
+    this.opcao = int(input())
+
+
+def menu3():
+    while this.opcao != 4:
+        mostrarMenu3()
+        if this.opcao == 1:
+            cadastrarProfessor.coletarDados()
+        elif this.opcao == 2:
+            atuzalizarNome.novoNome(this.email, this.nome)
+        elif this.opcao == 3:
+            atualizarSenha.atualizarSenha(this.email, this.senha)
+        elif this.opcao == 4:
+            print("Obrigado!")
+        else:
+            print('Opção inválida! Tente novamente')
+

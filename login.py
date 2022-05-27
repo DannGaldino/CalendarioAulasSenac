@@ -51,7 +51,7 @@ def loginAdm():
             se = senha[0]
             if this.senha == se:
                 print("Acesso Liberado")
-                cadastrarProfessor.coletarDados()
+                menu.menu3()
 
     except Exception as erro:
       print(erro)
