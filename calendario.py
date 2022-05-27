@@ -94,26 +94,28 @@ def consultar():
     print("3. Noite")
     this.turno = int(input())
 
-    cod = (convertDate(this.data) + "(" + str(this.turno) + ")")
+    try:
+        cod = (convertDate(this.data) + "(" + str(this.turno) + ")")
 
-    sql = "select * from calendario where codigo = '{}'".format(cod)
-    con.execute(sql)  # Prepara o comando para ser executado
+        sql = "select * from calendario where codigo = '{}'".format(cod)
+        con.execute(sql)  # Prepara o comando para ser executado
 
-    msg = "Nenhuma aula Agendada!"
+        msg = "Nenhuma aula Agendada!"
 
-    for (codigo, dia, mes, ano , turno, materia, professor) in con:
-        if this.turno == 1:
-           this.horario = "Manhã"
-        elif this.turno == 2:
-           this.horario = "Tarde"
-        elif this.turno == 3:
-            this.horario = "Noite"
-        else:
-            print("Insira uma opção válida!")
+        for (codigo, dia, mes, ano , turno, materia, professor) in con:
+            if this.turno == 1:
+               this.horario = "Manhã"
+            elif this.turno == 2:
+               this.horario = "Tarde"
+            elif this.turno == 3:
+                this.horario = "Noite"
+            else:
+                print("Insira uma opção válida!")
 
-        if cod == codigo:
-            msg = "Data: " + str(dia) + "/" + str(mes) + "/" + str(ano) + "\nTurno: " + str(this.horario) + "\nMatéria: " + materia  + "\nProfessor: " + professor
+            if cod == codigo:
+                msg = "Data: " + str(dia) + "/" + str(mes) + "/" + str(ano) + "\nTurno: " + str(this.horario) + "\nMatéria: " + materia  + "\nProfessor: " + professor
 
 
-    print(msg + "\n")
-
+        print(msg + "\n")
+    except Exception as erro:
+        print(str(erro) + "\nPor favor, tente novamente!")
